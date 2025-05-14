@@ -6,3 +6,8 @@ export interface Food {
     protein: number;
     carbs: number;
 }
+
+export interface SelectedFood {
+    food: Food;
+    quantity: number;
+}

@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
 import type { Food } from "../types/food";
-import Counter from "./counter";
-import DateSwitch from "./date-switch";
-// import GoalInput from "./goal-input";
-import FoodSearch from "./food-search";
-import SelectedFoods from "./selected-foods";
+import Notification from "./notification";
 import { foodList as foodDatabase } from "../data/foodlist";
+import FoodSearch from "./food-search";
+import DateSwitch from "./date-switch";
+import Counter from "./counter";
+import SelectedFoods from "./selected-foods";
+import { saveFoods, loadFoods, loadAllFoods } from "../data/food-tracker-db"; // Import loadAllFoods
+
+interface SelectedFood {
+  food: Food;
+  quantity: number;
+}
 
 export default function Content() {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [selectedFoods, setSelectedFoods] = useState<{ [date: string]: Food[] }>({
-    "2025-05-14": [],
-  });
+  const [selectedFoods, setSelectedFoods] = useState<{ [date: string]: SelectedFood[] }>({});
   const [currentDate, setCurrentDate] = useState<string>("2025-05-14");
   const [goals, setGoals] = useState({
     calories: 3000,
@@ -19,8 +23,9 @@ export default function Content() {
     protein: 150,
     carbs: 431,
   });
+  const [notification, setNotification] = useState<string | null>(null);
 
-  // Laster mål fra localStorage når komponenten lastes
+  // Load goals from localStorage
   useEffect(() => {
     const savedGoals = localStorage.getItem("nutritionGoals");
     if (savedGoals) {
@@ -28,20 +33,64 @@ export default function Content() {
     }
   }, []);
 
-  // Lagrer mål til localStorage når de oppdateres
+  // Save goals to localStorage
   useEffect(() => {
     localStorage.setItem("nutritionGoals", JSON.stringify(goals));
   }, [goals]);
+
+  // Load all foods from IndexedDB on component mount
+  useEffect(() => {
+    loadAllFoods()
+      .then((allFoods) => {
+        const foodsByDate = allFoods.reduce((acc, { date, selectedFoods }) => {
+          acc[date] = selectedFoods;
+          return acc;
+        }, {} as { [date: string]: SelectedFood[] });
+        // Ensure currentDate has an entry, even if empty
+        setSelectedFoods((prev) => ({
+          ...foodsByDate,
+          [currentDate]: foodsByDate[currentDate] || [],
+        }));
+      })
+      .catch((error: any) => {
+        console.error("Error loading all foods:", error);
+        setNotification("Failed to load food data");
+      });
+  }, []); // Empty dependency array to run once on mount
+
+  // Save foods to IndexedDB whenever selectedFoods changes
+  useEffect(() => {
+    saveFoods(currentDate, selectedFoods[currentDate] || []).catch((error: any) => {
+      console.error("Error saving foods:", error);
+      setNotification("Failed to save food data");
+    });
+  }, [selectedFoods, currentDate]);
 
   const filteredFoods = foodDatabase.filter((food: any) =>
     food.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const addFood = (food: Food) => {
-    setSelectedFoods((prev) => ({
-      ...prev,
-      [currentDate]: [...(prev[currentDate] || []), food],
-    }));
+    setSelectedFoods((prev) => {
+      const currentFoods = prev[currentDate] || [];
+      const existingFoodIndex = currentFoods.findIndex((item) => item.food.id === food.id);
+      if (existingFoodIndex >= 0) {
+        // Food exists, increment quantity
+        const updatedFoods = [...currentFoods];
+        updatedFoods[existingFoodIndex] = {
+          ...updatedFoods[existingFoodIndex],
+          quantity: updatedFoods[existingFoodIndex].quantity + 1,
+        };
+        return { ...prev, [currentDate]: updatedFoods };
+      } else {
+        // New food, add with quantity 1
+        return {
+          ...prev,
+          [currentDate]: [...currentFoods, { food, quantity: 1 }],
+        };
+      }
+    });
+    setNotification(`${food.name} lagt til`);
   };
 
   const removeFood = (index: number) => {
@@ -49,6 +98,29 @@ export default function Content() {
       ...prev,
       [currentDate]: prev[currentDate].filter((_, i) => i !== index),
     }));
+  };
+
+  const updateQuantity = (index: number, delta: number) => {
+    setSelectedFoods((prev) => {
+      const currentFoods = prev[currentDate] || [];
+      const updatedFoods = [...currentFoods];
+      const newQuantity = updatedFoods[index].quantity + delta;
+      if (newQuantity <= 0) {
+        // Remove item if quantity reaches 0
+        return {
+          ...prev,
+          [currentDate]: updatedFoods.filter((_, i) => i !== index),
+        };
+      }
+      updatedFoods[index] = {
+        ...updatedFoods[index],
+        quantity: newQuantity,
+      };
+      return { ...prev, [currentDate]: updatedFoods };
+    });
+    if (delta > 0) {
+      setNotification(`${selectedFoods[currentDate][index].food.name} lagt til`);
+    }
   };
 
   const changeDate = (days: number) => {
@@ -62,36 +134,34 @@ export default function Content() {
   };
 
   const totals = (selectedFoods[currentDate] || []).reduce(
-    (acc, food) => ({
-      calories: acc.calories + food.calories,
-      fat: acc.fat + food.fat,
-      protein: acc.protein + food.protein,
-      carbs: acc.carbs + food.carbs,
+    (acc, item: SelectedFood) => ({
+      calories: acc.calories + item.food.calories * item.quantity,
+      fat: acc.fat + item.food.fat * item.quantity,
+      protein: acc.protein + item.food.protein * item.quantity,
+      carbs: acc.carbs + item.food.carbs * item.quantity,
     }),
     { calories: 0, fat: 0, protein: 0, carbs: 0 }
   );
 
-  // const handleGoalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setGoals((prev) => ({
-  //     ...prev,
-  //     [name]: parseFloat(value) || 0,
-  //   }));
-  // };
-
   return (
-    <div className="flex-1 p-6 max-w-1g">
-
-      {/* <GoalInput goals={goals} handleGoalChange={handleGoalChange} /> */}
-
+    <div className="flex-1 p-4 sm:p-6 max-w-7xl mx-auto">
       <Counter totals={totals} goals={goals} />
-
       <DateSwitch currentDate={currentDate} changeDate={changeDate} />
-
-      <FoodSearch searchTerm={searchTerm} filteredFoods={filteredFoods} addFood={addFood} setSearchTerm={setSearchTerm} />
-
-      <SelectedFoods selectedFoods={selectedFoods} currentDate={currentDate} removeFood={removeFood} />
-      
+      <FoodSearch
+        searchTerm={searchTerm}
+        filteredFoods={filteredFoods}
+        addFood={addFood}
+        setSearchTerm={setSearchTerm}
+      />
+      <SelectedFoods
+        selectedFoods={selectedFoods}
+        currentDate={currentDate}
+        removeFood={removeFood}
+        updateQuantity={updateQuantity}
+      />
+      {notification && (
+        <Notification message={notification} onClose={() => setNotification(null)} />
+      )}
     </div>
   );
 }
