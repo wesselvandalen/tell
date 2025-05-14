@@ -6,7 +6,7 @@ import FoodSearch from "./food-search";
 import DateSwitch from "./date-switch";
 import Counter from "./counter";
 import SelectedFoods from "./selected-foods";
-import { saveFoods, loadFoods, loadAllFoods } from "../data/food-tracker-db"; // Import loadAllFoods
+import { saveFoods, loadAllFoods } from "../data/food-tracker-db"; // Import loadAllFoods
 
 interface SelectedFood {
   food: Food;
@@ -47,7 +47,7 @@ export default function Content() {
           return acc;
         }, {} as { [date: string]: SelectedFood[] });
         // Ensure currentDate has an entry, even if empty
-        setSelectedFoods((prev) => ({
+        setSelectedFoods(() => ({
           ...foodsByDate,
           [currentDate]: foodsByDate[currentDate] || [],
         }));
