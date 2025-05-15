@@ -18,7 +18,6 @@ export default function Content() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedFoods, setSelectedFoods] = useState<{ [date: string]: SelectedFood[] }>({});
   const [currentDate, setCurrentDate] = useState<string>("2025-05-14");
-  const [isExploding, setIsExploding] = useState(false);
   const [goals, setGoals] = useState({
     calories: 3000,
     fat: 75,
@@ -37,14 +36,6 @@ export default function Content() {
     }),
     { calories: 0, fat: 0, protein: 0, carbs: 0 }
   );
-
-  // Trigger confetti when calories exceed goal
-  useEffect(() => {
-    if (totals.calories > goals.calories && !isExploding) {
-      console.log("Calories exceeded goal, triggering confetti:", totals.calories, goals.calories);
-      makeExplode();
-    }
-  }, [totals.calories, goals.calories]);
 
   // Load goals from localStorage
   useEffect(() => {
@@ -85,15 +76,6 @@ export default function Content() {
       setNotification("Failed to save food data");
     });
   }, [selectedFoods, currentDate]);
-
-  const makeExplode = () => {
-    console.log("Triggering confetti explosion");
-    setIsExploding(true);
-    setTimeout(() => {
-      setIsExploding(false);
-      console.log("Confetti explosion ended");
-    }, 3000);
-  };
 
   const filteredFoods = foodDatabase.filter((food: any) =>
     food.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -159,7 +141,7 @@ export default function Content() {
 
   return (
     <div className="flex-1 p-4 sm:p-6 max-w-7xl mx-auto">
-      <Counter totals={totals} goals={goals} isExploding={isExploding} />
+      <Counter totals={totals} goals={goals} />
       <DateSwitch currentDate={currentDate} changeDate={changeDate} />
       <FoodSearch
         searchTerm={searchTerm}

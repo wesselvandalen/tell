@@ -1,6 +1,4 @@
-import ConfettiExplosion from "react-confetti-explosion";
-
-export default function Counter({ totals, goals, isExploding }: any) {
+export default function Counter({ totals, goals }: any) {
   // Calculate progress percentage (0 to 100)
   const progress = Math.min((totals.calories / goals.calories) * 100, 100);
 
@@ -51,19 +49,6 @@ export default function Counter({ totals, goals, isExploding }: any) {
           </span>
           <span className="text-sm sm:text-base text-center">{totals.calories > goals.calories ? "over" : "igjen"}</span>
         </div>
-
-        {/* Center the confetti explosion */}
-        {isExploding && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <ConfettiExplosion
-              force={0.8}
-              duration={3000}
-              particleCount={100}
-              width={800}
-              height={600}
-            />
-          </div>
-        )}
       </div>
 
       <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4 rounded-lg bg-white shadow p-4 sm:p-6 w-full sm:w-auto">
