@@ -4,7 +4,7 @@ export default function Footer() {
             <div className="mx-auto max-w-screen-xl text-center">
                 <a href="/" className="flex justify-center items-center text-2xl font-semibold text-gray-900">Tell™</a>
                 <p className="mb-2 text-gray-500 dark:text-gray-400">En enkel matsporer for deg, uten trøbbel.</p>
-                <ul className="flex flex-wrap justify-center items-center mb-2 text-gray-900 dark:text-white">
+                <ul className="flex flex-wrap justify-center items-center mb-2">
                     <li>
                         <a href="/" className="mr-4 hover:underline md:mr-6 ">Hjem</a>
                     </li>

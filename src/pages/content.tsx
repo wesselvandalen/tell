@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import type { Food } from "../types/food";
-import Notification from "./notification";
+import Notification from "../components/notification";
 import { foodList as foodDatabase } from "../data/foodlist";
-import FoodSearch from "./food-search";
-import DateSwitch from "./date-switch";
-import Counter from "./counter";
-import SelectedFoods from "./selected-foods";
-import Footer from "./footer";
+import FoodSearch from "../components/food-search";
+import DateSwitch from "../components/date-switch";
+import Counter from "../components/counter";
+import SelectedFoods from "../components/selected-foods";
+import Footer from "../components/footer";
 import { saveFoods, loadAllFoods } from "../data/food-tracker-db";
 import party from "party-js";
 

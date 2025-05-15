@@ -12,7 +12,7 @@ export default function Notification({ message, onClose }: NotificationProps) {
     const timer = setTimeout(() => {
       setIsVisible(false);
       onClose();
-    }, 3000); // Notification disappears after 3 seconds
+    }, 4000); // Notification disappears after 4 seconds
     return () => clearTimeout(timer);
   }, [onClose]);
 

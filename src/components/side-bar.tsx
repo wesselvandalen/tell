@@ -1,36 +1,29 @@
 import { useContext } from 'react';
-import logo from '../assets/logo.png';
 import { AuthContext } from "../contexts/auth-context";
+import UserBox from './user-box';
 
 export default function SideBar() {
   const { user }: any = useContext(AuthContext);
-
-  console.log(user);
   
   return (
-    <div className="w-64 bg-white h-screen p-4 shadow-md max-md:hidden">
-      <div className="flex align-center gap-2">
-        <img src={logo} alt="Tell logo" className="w-6 h-6" />
-        <p className='text-1xl'>Tell - Spor mat skikkelig</p>
-      </div>
-      <h2 className="text-xl font-bold mb-4 text-gray-900 border-b-1 pb-5 border-gray-200"></h2>
-      <ul className="space-y-2 w-full">
+    <div className="w-64 bg-white h-screen pl-4 pr-4 pt-2 shadow-md max-md:hidden">
+
+      {user && <UserBox name={user.displayName} imageUrl={user.photoURL}  />}
+
+      <ul className="space-y-2 w-full border-t-1 border-gray-300 pt-3 mt-2">
         <li className='w-full'>
-          <a href='/' className="w-full text-left p-2 hover:bg-gray-100 rounded text-gray-900">
+          <a href='/' className="w-full text-left">
             Hjem
           </a>
         </li>
         {!user ?
-          <li>
-            <a href='/login' className="w-full text-left p-2 hover:bg-gray-100 rounded text-gray-900">
+          <li className='w-full'>
+            <a href='/login' className="w-full text-left">
               Logg på
             </a>
           </li>
           :
           null}
-          <li>
-          { user }
-          </li>
       </ul>
     </div>
   );

@@ -4,8 +4,14 @@ interface DateSwitchProps {
 }
 
 export default function DateSwitch({ currentDate, changeDate }: DateSwitchProps) {
+
+    const formatDateNorwegianStyle = (currentDate: string) => {
+        const date = new Date(currentDate);
+        return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`;
+    }
+
     return (
-        <div className="mb-4 flex justify-center gap-4">
+        <div className="mb-2 flex justify-center gap-4">
             <button
                 onClick={() => changeDate(-1)}
                 className="px-4 py-2  text-white rounded"
@@ -14,7 +20,7 @@ export default function DateSwitch({ currentDate, changeDate }: DateSwitchProps)
                     <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </button>
-            <span className="text-gray-900 mt-2" onClick={() => changeDate(0)}>{currentDate}</span>
+            <span className="text-gray-900 mt-2 cursor-pointer" onClick={() => changeDate(0)}>{formatDateNorwegianStyle(currentDate)}</span>
             <button
                 onClick={() => changeDate(1)}
                 className="px-4 py-2  text-white rounded "

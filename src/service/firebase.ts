@@ -11,10 +11,9 @@ const firebaseConfig = {
     appId: "1:1032114981963:web:719ae9a5040929b739d1ce"
 };
 
-const app: any = initializeApp(firebaseConfig);
-export const auth: any = getAuth(app);
-
-export const db: any = initializeFirestore(app, {
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = initializeFirestore(app, {
   localCache: persistentLocalCache({
     tabManager: persistentMultipleTabManager()
   })
