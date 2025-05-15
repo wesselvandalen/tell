@@ -1,11 +1,11 @@
 import type { Food } from "../types/food";
 
 export const foodList: Food[] = [
-    { id: 1, name: "Banan", calories: 52, fat: 0.2, protein: 0.3, carbs: 14 },
+    { id: 1, name: "Banan", calories: 100, fat: 0.1, protein: 1.2, carbs: 22.4 },
     { id: 2, name: "Eple", calories: 52, fat: 0.2, protein: 0.3, carbs: 14 },
     { id: 3, name: "Peanøttsmør-brød", calories: 280, fat: 16, protein: 9, carbs: 24 },
-    { id: 4, name: "Egg", calories: 78, fat: 5.3, protein: 6.3, carbs: 0.6 },
-    { id: 5, name: "Chocolate Cookie (50g)", calories: 245, fat: 12, protein: 2.5, carbs: 32 },
+    { id: 4, name: "Egg", calories: 93, fat: 6.6, protein: 7.8, carbs: 0.7 },
+    { id: 5, name: "Chocolate Cookie", calories: 93.9, fat: 4.8, protein: 1, carbs: 11.4 },
     { id: 6, name: "Tosti ham kaas", calories: 350, fat: 17, protein: 19, carbs: 30 },
     { id: 7, name: "Sultana kjeks (1)", calories: 140, fat: 4.5, protein: 1.5, carbs: 22 },
     { id: 8, name: "Cola (33cl)", calories: 139, fat: 0, protein: 0, carbs: 35 },

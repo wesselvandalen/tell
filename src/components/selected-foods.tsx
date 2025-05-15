@@ -13,7 +13,6 @@ export default function SelectedFoods({
   removeFood,
   updateQuantity,
 }: SelectedFoodsProps) {
-  // Safely access selectedFoods for the current date, default to empty array
   const foods = selectedFoods[currentDate] || [];
 
   return (
@@ -29,25 +28,25 @@ export default function SelectedFoods({
               className="flex justify-between items-center p-2 bg-gray-100 rounded"
             >
               <span>
-                {item.food.name} - {item.quantity} enhet(er) (
-                {item.food.calories * item.quantity} kcal)
+                {item.food.name} - {(item.food.calories * item.quantity).toFixed(0)} kcal
               </span>
-              <div className="flex space-x-2">
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => updateQuantity(index, -1)}
+                  className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded hover:bg-gray-200 transition-colors cursor-pointer"
+                >
+                  -
+                </button>
+                <span className="w-8 text-center">{item.quantity}</span>
                 <button
                   onClick={() => updateQuantity(index, 1)}
-                  className="px-2 py-1 bg-green-500 text-white rounded"
+                  className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded hover:bg-gray-200 transition-colors cursor-pointer"
                 >
                   +
                 </button>
                 <button
-                  onClick={() => updateQuantity(index, -1)}
-                  className="px-2 py-1 bg-yellow-500 text-white rounded"
-                >
-                  -
-                </button>
-                <button
                   onClick={() => removeFood(index)}
-                  className="px-2 py-1 bg-red-500 text-white rounded"
+                  className="px-2 py-1 border text-sm border-gray-300 rounded hover:bg-gray-200 transition-colors cursor-pointer"
                 >
                   Fjern
                 </button>

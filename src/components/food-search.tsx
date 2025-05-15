@@ -16,7 +16,7 @@ interface FoodSearchProps {
         <input
           type="text"
           placeholder="Søk etter mat..."
-          className="w-full p-3 sm:p-2 mb-4 border rounded text-gray-900 bg-white text-sm sm:text-base"
+          className="w-full p-3 sm:p-2 mb-4 border rounded text-gray-900 bg-white text-base sm:text-base"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

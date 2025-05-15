@@ -6,7 +6,8 @@ import FoodSearch from "./food-search";
 import DateSwitch from "./date-switch";
 import Counter from "./counter";
 import SelectedFoods from "./selected-foods";
-import { saveFoods, loadAllFoods } from "../data/food-tracker-db"; // Import loadAllFoods
+import Footer from "./footer";
+import { saveFoods, loadAllFoods } from "../data/food-tracker-db";
 
 interface SelectedFood {
   food: Food;
@@ -17,6 +18,7 @@ export default function Content() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedFoods, setSelectedFoods] = useState<{ [date: string]: SelectedFood[] }>({});
   const [currentDate, setCurrentDate] = useState<string>("2025-05-14");
+  const [isExploding, setIsExploding] = useState(false);
   const [goals, setGoals] = useState({
     calories: 3000,
     fat: 75,
@@ -24,6 +26,25 @@ export default function Content() {
     carbs: 431,
   });
   const [notification, setNotification] = useState<string | null>(null);
+
+  // Calculate totals
+  const totals = (selectedFoods[currentDate] || []).reduce(
+    (acc, item: SelectedFood) => ({
+      calories: acc.calories + item.food.calories * item.quantity,
+      fat: acc.fat + item.food.fat * item.quantity,
+      protein: acc.protein + item.food.protein * item.quantity,
+      carbs: acc.carbs + item.food.carbs * item.quantity,
+    }),
+    { calories: 0, fat: 0, protein: 0, carbs: 0 }
+  );
+
+  // Trigger confetti when calories exceed goal
+  useEffect(() => {
+    if (totals.calories > goals.calories && !isExploding) {
+      console.log("Calories exceeded goal, triggering confetti:", totals.calories, goals.calories);
+      makeExplode();
+    }
+  }, [totals.calories, goals.calories]);
 
   // Load goals from localStorage
   useEffect(() => {
@@ -46,17 +67,16 @@ export default function Content() {
           acc[date] = selectedFoods;
           return acc;
         }, {} as { [date: string]: SelectedFood[] });
-        // Ensure currentDate has an entry, even if empty
-        setSelectedFoods(() => ({
+        setSelectedFoods({
           ...foodsByDate,
           [currentDate]: foodsByDate[currentDate] || [],
-        }));
+        });
       })
       .catch((error: any) => {
         console.error("Error loading all foods:", error);
         setNotification("Failed to load food data");
       });
-  }, []); // Empty dependency array to run once on mount
+  }, [currentDate]);
 
   // Save foods to IndexedDB whenever selectedFoods changes
   useEffect(() => {
@@ -66,6 +86,15 @@ export default function Content() {
     });
   }, [selectedFoods, currentDate]);
 
+  const makeExplode = () => {
+    console.log("Triggering confetti explosion");
+    setIsExploding(true);
+    setTimeout(() => {
+      setIsExploding(false);
+      console.log("Confetti explosion ended");
+    }, 3000);
+  };
+
   const filteredFoods = foodDatabase.filter((food: any) =>
     food.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -74,21 +103,17 @@ export default function Content() {
     setSelectedFoods((prev) => {
       const currentFoods = prev[currentDate] || [];
       const existingFoodIndex = currentFoods.findIndex((item) => item.food.id === food.id);
+      let updatedFoods;
       if (existingFoodIndex >= 0) {
-        // Food exists, increment quantity
-        const updatedFoods = [...currentFoods];
+        updatedFoods = [...currentFoods];
         updatedFoods[existingFoodIndex] = {
           ...updatedFoods[existingFoodIndex],
           quantity: updatedFoods[existingFoodIndex].quantity + 1,
         };
-        return { ...prev, [currentDate]: updatedFoods };
       } else {
-        // New food, add with quantity 1
-        return {
-          ...prev,
-          [currentDate]: [...currentFoods, { food, quantity: 1 }],
-        };
+        updatedFoods = [...currentFoods, { food, quantity: 1 }];
       }
+      return { ...prev, [currentDate]: updatedFoods };
     });
     setNotification(`${food.name} lagt til`);
   };
@@ -106,7 +131,6 @@ export default function Content() {
       const updatedFoods = [...currentFoods];
       const newQuantity = updatedFoods[index].quantity + delta;
       if (newQuantity <= 0) {
-        // Remove item if quantity reaches 0
         return {
           ...prev,
           [currentDate]: updatedFoods.filter((_, i) => i !== index),
@@ -133,19 +157,9 @@ export default function Content() {
     }
   };
 
-  const totals = (selectedFoods[currentDate] || []).reduce(
-    (acc, item: SelectedFood) => ({
-      calories: acc.calories + item.food.calories * item.quantity,
-      fat: acc.fat + item.food.fat * item.quantity,
-      protein: acc.protein + item.food.protein * item.quantity,
-      carbs: acc.carbs + item.food.carbs * item.quantity,
-    }),
-    { calories: 0, fat: 0, protein: 0, carbs: 0 }
-  );
-
   return (
     <div className="flex-1 p-4 sm:p-6 max-w-7xl mx-auto">
-      <Counter totals={totals} goals={goals} />
+      <Counter totals={totals} goals={goals} isExploding={isExploding} />
       <DateSwitch currentDate={currentDate} changeDate={changeDate} />
       <FoodSearch
         searchTerm={searchTerm}
@@ -162,6 +176,7 @@ export default function Content() {
       {notification && (
         <Notification message={notification} onClose={() => setNotification(null)} />
       )}
+      <Footer />
     </div>
   );
 }
