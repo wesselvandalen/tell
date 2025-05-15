@@ -8,6 +8,7 @@ import Counter from "./counter";
 import SelectedFoods from "./selected-foods";
 import Footer from "./footer";
 import { saveFoods, loadAllFoods } from "../data/food-tracker-db";
+import party from "party-js";
 
 interface SelectedFood {
   food: Food;
@@ -17,7 +18,7 @@ interface SelectedFood {
 export default function Content() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedFoods, setSelectedFoods] = useState<{ [date: string]: SelectedFood[] }>({});
-  const [currentDate, setCurrentDate] = useState<string>("2025-05-14");
+  const [currentDate, setCurrentDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [goals, setGoals] = useState({
     calories: 3000,
     fat: 75,
@@ -25,6 +26,7 @@ export default function Content() {
     carbs: 431,
   });
   const [notification, setNotification] = useState<string | null>(null);
+  const [confettiTriggered, setConfettiTriggered] = useState<boolean>(false); // New state to track confetti
 
   // Calculate totals
   const totals = (selectedFoods[currentDate] || []).reduce(
@@ -69,13 +71,26 @@ export default function Content() {
       });
   }, [currentDate]);
 
-  // Save foods to IndexedDB whenever selectedFoods changes
+  // Save foods to IndexedDB and check for calorie goal
   useEffect(() => {
     saveFoods(currentDate, selectedFoods[currentDate] || []).catch((error: any) => {
       console.error("Error saving foods:", error);
       setNotification("Failed to save food data");
     });
-  }, [selectedFoods, currentDate]);
+
+    // Check if calorie goal is surpassed and confetti hasn't been triggered
+    if (totals.calories > goals.calories && !confettiTriggered) {
+      const element: any = document.querySelector("#confetti");
+      if (element) {
+        party.confetti(element);
+        setConfettiTriggered(true); // Prevent triggering again
+      }
+    }
+    // Reset confetti trigger if calories drop below goal
+    if (totals.calories <= goals.calories && confettiTriggered) {
+      setConfettiTriggered(false);
+    }
+  }, [selectedFoods, currentDate, totals.calories, goals.calories, confettiTriggered]);
 
   const filteredFoods = foodDatabase.filter((food: any) =>
     food.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -97,6 +112,8 @@ export default function Content() {
       }
       return { ...prev, [currentDate]: updatedFoods };
     });
+
+    setSearchTerm("");
     setNotification(`${food.name} lagt til`);
   };
 
@@ -130,6 +147,15 @@ export default function Content() {
   };
 
   const changeDate = (days: number) => {
+    if (days === 0) {
+      setCurrentDate(new Date().toISOString().split('T')[0])
+      if (!selectedFoods[new Date().toISOString().split('T')[0]]) {
+        setSelectedFoods((prev) => ({ ...prev, [newDateStr]: [] }));
+      }
+      setConfettiTriggered(false);
+      return;
+    };
+
     const newDate = new Date(currentDate);
     newDate.setDate(newDate.getDate() + days);
     const newDateStr = newDate.toISOString().split("T")[0];
@@ -137,27 +163,34 @@ export default function Content() {
     if (!selectedFoods[newDateStr]) {
       setSelectedFoods((prev) => ({ ...prev, [newDateStr]: [] }));
     }
+    setConfettiTriggered(false); 
   };
 
   return (
     <div className="flex-1 p-4 sm:p-6 max-w-7xl mx-auto">
+
       <Counter totals={totals} goals={goals} />
+
       <DateSwitch currentDate={currentDate} changeDate={changeDate} />
+
       <FoodSearch
         searchTerm={searchTerm}
         filteredFoods={filteredFoods}
         addFood={addFood}
         setSearchTerm={setSearchTerm}
       />
+
       <SelectedFoods
         selectedFoods={selectedFoods}
         currentDate={currentDate}
         removeFood={removeFood}
         updateQuantity={updateQuantity}
       />
+
       {notification && (
         <Notification message={notification} onClose={() => setNotification(null)} />
       )}
+      
       <Footer />
     </div>
   );

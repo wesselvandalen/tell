@@ -16,8 +16,8 @@ export default function Counter({ totals, goals }: any) {
   }
 
   return (
-    <div className="flex flex-col items-center mb-6">
-      <div className="w-24 h-24 sm:w-32 sm:h-32 relative flex items-center justify-center">
+    <div className="flex flex-col items-center mb-6 mt-6">
+      <div className="w-48 h-48 sm:w-32 sm:h-32 relative flex items-center justify-center">
         <svg className="w-full h-full" viewBox="0 0 100 100">
           {/* Background circle (gray) */}
           <circle
@@ -44,24 +44,24 @@ export default function Counter({ totals, goals }: any) {
         </svg>
 
         <div className="absolute flex flex-col items-center justify-center text-gray-900">
-          <span className="text-lg sm:text-2xl text-center">
+          <span className="text-3xl sm:text-2xl text-center">
             {calculateCaloryGoalDifference(totals.calories, goals.calories)}
           </span>
-          <span className="text-sm sm:text-base text-center">{totals.calories > goals.calories ? "over" : "igjen"}</span>
+          <span className="text-md sm:text-base text-center">{totals.calories > goals.calories ? "over" : "igjen"}</span>
         </div>
       </div>
-
-      <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4 rounded-lg bg-white shadow p-4 sm:p-6 w-full sm:w-auto">
+      <div id="confetti" />
+      <div className="flex flex-row justify-center gap-4 mt-4 rounded-lg bg-white shadow p-4 sm:p-6 w-full sm:w-auto">
         <div className="flex flex-col items-center justify-center w-full sm:w-24 h-20 sm:h-24 text-gray-900 ml-5 mr-5">
-          <span className="text-xs sm:text-sm font-semibold">Carbs</span>
+          <span className="text-xs sm:text-sm font-semibold">Karbs</span>
           <span className="text-base sm:text-lg">{totals.carbs.toFixed(0)}/{goals.carbs}g</span>
         </div>
         <div className="flex flex-col items-center justify-center w-full sm:w-24 h-20 sm:h-24 text-gray-900 ml-5 mr-5">
-          <span className="text-xs sm:text-sm font-semibold">Protein</span>
+          <span className="text-xs sm:text-sm font-semibold">Proteiner</span>
           <span className="text-base sm:text-lg">{totals.protein.toFixed(0)}/{goals.protein}g</span>
         </div>
         <div className="flex flex-col items-center justify-center w-full sm:w-24 h-20 sm:h-24 text-gray-900 ml-5 mr-5">
-          <span className="text-xs sm:text-sm font-semibold">Fat</span>
+          <span className="text-xs sm:text-sm font-semibold">Fett</span>
           <span className="text-base sm:text-lg">{totals.fat.toFixed(0)}/{goals.fat}g</span>
         </div>
       </div>

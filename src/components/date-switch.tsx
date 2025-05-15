@@ -14,7 +14,7 @@ export default function DateSwitch({ currentDate, changeDate }: DateSwitchProps)
                     <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </button>
-            <span className="text-gray-900 mt-2">{currentDate}</span>
+            <span className="text-gray-900 mt-2" onClick={() => changeDate(0)}>{currentDate}</span>
             <button
                 onClick={() => changeDate(1)}
                 className="px-4 py-2  text-white rounded "
