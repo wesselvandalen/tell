@@ -11,7 +11,7 @@ export default function SideBar() {
 
   const removeNote = () => {
     setShowNote(false);
-    localStorage.setItem("note", "true");
+    localStorage.setItem("note", "false");
   }
 
   return (
