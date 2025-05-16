@@ -8,7 +8,7 @@ export default function HomePage() {
     const { t } = useTranslation("global");
     const { user }: any = useContext(AuthContext);
 
-    const getRandomElementFromArray = (array: string[] = ["Välkomna", "Velkommen", "Tervetulua", "Welkom", "Velkomin", "Vælkomin", "Tere tulemast"]): string => {
+    const getRandomElementFromArray = (array: string[] = ["Välkomna", "Velkommen", "Tervetuloa", "Welkom", "Velkomin", "Vælkomin", "Tere tulemast"]): string => {
         return array[Math.floor(Math.random() * array.length)];
     }
 
