@@ -1,0 +1,91 @@
+{
+    "sidebar": {
+        "home": "Etusivu",
+        "account": "Tili",
+        "terms": "Käyttöehdot",
+        "note": {
+            "new": "Uusi",
+            "description": "Kokeile sovellustamme omalla kielelläsi! Tell tukee nyt yhteensä 9 kieltä!"
+        },
+        "userblock": {
+            "logout": "Kirjaudu ulos"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "jäljellä",
+            "over": "yli",
+            "carbs": "Hiilihydraatit",
+            "proteins": "Proteiinit",
+            "fat": "Rasvat"
+        },
+        "foodsearch": {
+            "search": "Etsi ruokaa...",
+            "chosenfood": "Valittu ruoka",
+            "nofood": "Ruokaa ei ole vielä lisätty.",
+            "remove": "Poista"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Tutustu meidän",
+            "mid_description": "kalorilaskuriin, jossa voit vain",
+            "highlighted_phrases": {
+                "amazing": "mahtavaan",
+                "track": "seurata ruokaasi"
+            },
+            "description": "ilman turhia ominaisuuksia!"
+        },
+        "buttons": {
+            "tracker": "Siirry laskuriin",
+            "account": "Luo tili"
+        },
+        "introduction": {
+            "main1": "Emme ole ensimmäisiä, jotka tekevät tämän,",
+            "main2": "me vain teemme sen oikein.",
+            "first": "Olemme tavallisia ihmisiä, jotka haluavat vain seurata kaloreitaan. Ei mainoksia, ei turhia toimintoja – vain yksinkertaista ja tehokasta kaloriseurantaa.",
+            "second": "Tellissä (norskaa sanalle 'laskea') haluamme yksinkertaisen sovelluksen, jolla ihmiset voivat seurata kaloreitaan helposti eri alustoilla. Siksi teimme tästä sovelluksesta mahdollisimman yksinkertaisen, mutta sisällytimme siihen kaiken olennaisen."
+        }
+    },
+    "errorpage": {
+        "main": "Täällä ei ole mitään...",
+        "description": "Mitä ikinä etsitkin, se ei ole täällä.",
+        "link": "Palaa etusivulle"
+    },
+    "termspage": {
+        "title": "Käyttöehdot",
+        "intro": "Tervetuloa kalorienseurantasivustollemme. Käyttämällä verkkosivustoamme ja palveluitamme hyväksyt nämä käyttöehdot. Jos et hyväksy ehtoja, älä käytä palveluamme.",
+        "sections": [
+            {
+                "title": "1. Tilin rekisteröinti",
+                "content": "Palvelun käyttämiseksi sinun tulee luoda tili Google-tunnistautumisen avulla. Olet vastuussa tilisi tietoturvasta ja siitä, että kaikki toiminta tililläsi noudattaa näitä ehtoja."
+            },
+            {
+                "title": "2. Palvelun käyttö",
+                "content": "Palvelumme avulla voit seurata päivittäistä kalorinsaantiasi. Sitoudut käyttämään palvelua vain henkilökohtaiseen, ei-kaupalliseen käyttöön, ja et laittomaan tai vahingolliseen toimintaan."
+            },
+            {
+                "title": "3. Tietosuoja ja tiedot",
+                "content": "Kirjautumalla sisään Google-tililläsi annat meille luvan käyttää tiettyjä tietoja, kuten nimeäsi ja sähköpostiosoitettasi. Emme myy tietojasi ja suojelemme yksityisyyttäsi asianmukaisesti. Katso tietosuojakäytäntömme lisätietoja varten."
+            },
+            {
+                "title": "4. Tilin sulkeminen",
+                "content": "Pidätämme oikeuden keskeyttää tai lopettaa tilisi, jos rikot näitä ehtoja tai vaarannat palvelua tai sen käyttäjiä."
+            },
+            {
+                "title": "5. Ehtojen muutokset",
+                "content": "Saatamme päivittää näitä käyttöehtoja milloin tahansa. Palvelun jatkokäyttö tarkoittaa uusien ehtojen hyväksymistä."
+            },
+            {
+                "title": "6. Ota yhteyttä",
+                "content": "Jos sinulla on kysyttävää näistä ehdoista, ota meihin yhteyttä osoitteessa wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "lisätty"
+    },
+    "footer": {
+        "description": "Kaikki oikeudet pidätetään."
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "sidebar": {
+        "home": "Heim",
+        "account": "Brúkarakonto",
+        "terms": "Treytir og reglur",
+        "note": {
+            "new": "Nýtt",
+            "description": "Roys app okkara á tínum máli! Tell stuðlar nú 9 málum íalt!"
+        },
+        "userblock": {
+            "logout": "Logga út"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "eftir",
+            "over": "yvir",
+            "carbs": "Kolvetni",
+            "proteins": "Protein",
+            "fat": "Fiti"
+        },
+        "foodsearch": {
+            "search": "Leita eftir mati...",
+            "chosenfood": "Valdur matur",
+            "nofood": "Eingin matur er lagdur afturat enn.",
+            "remove": "Fjarlægja"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Uppdaga okkara",
+            "mid_description": "kaloríteljara, har tú bara kanst",
+            "highlighted_phrases": {
+                "amazing": "ótrúliga",
+                "track": "skráseta matin tín"
+            },
+            "description": "uttan óneyðugar funksjónir!"
+        },
+        "buttons": {
+            "tracker": "Far til teljaran",
+            "account": "Ger tær ein konto"
+        },
+        "introduction": {
+            "main1": "Vit eru ikki tey fyrstu, sum gera hetta,",
+            "main2": "vit gera tað bara rætt.",
+            "first": "Vit eru vanlig fólk, sum bara vilja telja kaloríur. Ongar lýsingar, ongar óneyðugar funktiónir – bara einføld og virkin kaloríuteljing.",
+            "second": "Hjá Tell (norskt fyri 'telja') vilja vit hava eitt einfalt app, har fólk kunnu telja sínar kaloríur, tvørtur um eindir, uttan trupulleikar. Tí gjørdu vit hetta appið so einfalt sum møguligt við bara tí mest neyðuga."
+        }
+    },
+    "errorpage": {
+        "main": "Her er einki at finna...",
+        "description": "Hvat tú leitaði eftir er ikki her.",
+        "link": "Far aftur til høvuðssíðuna"
+    },
+    "termspage": {
+        "title": "Tingimused ja sätted",
+        "intro": "Tere tulemast meie kalorijälgimise veebilehele. Meie veebilehte ja teenuseid kasutades nõustute nende tingimustega. Kui te ei nõustu, palun ärge kasutage meie teenuseid.",
+        "sections": [
+            {
+                "title": "1. Konto registreerimine",
+                "content": "Teenuse kasutamiseks peate looma konto Google'i autentimise kaudu. Olete vastutav oma konto konfidentsiaalsuse säilitamise eest ning tagate, et kõik tegevused vastavad nendele tingimustele."
+            },
+            {
+                "title": "2. Teenuse kasutamine",
+                "content": "Meie teenus võimaldab jälgida teie igapäevast kalorite tarbimist. Nõustute kasutama teenust ainult isiklikuks, mitteäriliseks otstarbeks ning mitte ebaseaduslikuks või kahjulikuks tegevuseks."
+            },
+            {
+                "title": "3. Privaatsus ja andmed",
+                "content": "Google’i kontoga sisse logides annate meile loa juurdepääsuks teatud teabele, näiteks teie nimi ja e-posti aadress. Me ei müü teie andmeid ning võtame tarvitusele sobivad meetmed teie privaatsuse kaitsmiseks. Lisateabe saamiseks vaadake meie privaatsuspoliitikat."
+            },
+            {
+                "title": "4. Konto lõpetamine",
+                "content": "Meil on õigus peatada või lõpetada teie konto, kui rikute neid tingimusi või kahjustate teenust või selle kasutajaid."
+            },
+            {
+                "title": "5. Tingimuste muutmine",
+                "content": "Võime neid tingimusi igal ajal uuendada. Teenuse edasine kasutamine pärast muudatusi tähendab uute tingimustega nõustumist."
+            },
+            {
+                "title": "6. Võtke ühendust",
+                "content": "Kui teil on nende tingimuste kohta küsimusi, võtke meiega ühendust aadressil wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "lagt afturat"
+    },
+    "footer": {
+        "description": "Øll rættindi forbeholdin."
+    }
+}

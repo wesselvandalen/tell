@@ -1,0 +1,91 @@
+{
+    "sidebar": {
+        "home": "Hem",
+        "account": "Konto",
+        "terms": "Villkor",
+        "note": {
+            "new": "Ny",
+            "description": "Prova att använda vår app på ditt språk! Tell stöder nu totalt 9 språk!"
+        },
+        "userblock": {
+            "logout": "Logga ut"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "kvar",
+            "over": "över",
+            "carbs": "Kolhydrater",
+            "proteins": "Proteiner",
+            "fat": "Fett"
+        },
+        "foodsearch": {
+            "search": "Sök efter mat...",
+            "chosenfood": "Vald mat",
+            "nofood": "Ingen mat har lagts till ännu.",
+            "remove": "Ta bort"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Upptäck vår",
+            "mid_description": "kaloriräknare, där du bara kan",
+            "highlighted_phrases": {
+                "amazing": "fantastiska",
+                "track": "spåra din mat"
+            },
+            "description": "utan onödiga funktioner!"
+        },
+        "buttons": {
+            "tracker": "Gå till räknaren",
+            "account": "Skapa ett konto"
+        },
+        "introduction": {
+            "main1": "Vi är inte de första som gör det,",
+            "main2": "vi gör det bara rätt.",
+            "first": "Vi är vanliga människor som bara vill räkna kalorier. Inga annonser, inga onödiga funktioner, bara enkel och effektiv kaloriräkning.",
+            "second": "På Tell (norska för 'räkna') vill vi ha en enkel app där folk kan räkna kalorier över olika plattformar, utan krångel. Därför gjorde vi appen så enkel som möjligt men med det nödvändiga."
+        }
+    },
+    "errorpage": {
+        "main": "Det finns inget här...",
+        "description": "Vad du än letade efter finns inte här.",
+        "link": "Gå tillbaka till startsidan"
+    },
+    "termspage": {
+        "title": "Villkor och bestämmelser",
+        "intro": "Välkommen till vår webbplats för kalorispårning. Genom att använda vår webbplats och våra tjänster godkänner du dessa villkor. Om du inte godkänner, vänligen använd inte våra tjänster.",
+        "sections": [
+            {
+                "title": "1. Konto Registrering",
+                "content": "För att använda vår tjänst måste du skapa ett konto via Google-autentisering. Du ansvarar för att hålla ditt konto konfidentiellt och säkerställa att all aktivitet på ditt konto följer dessa villkor."
+            },
+            {
+                "title": "2. Användning av tjänsten",
+                "content": "Vår tjänst gör att du kan spåra ditt dagliga kaloriintag. Du samtycker till att använda denna tjänst enbart för personligt, icke-kommersiellt bruk och inte för olagliga eller skadliga aktiviteter."
+            },
+            {
+                "title": "3. Integritet och data",
+                "content": "Genom att logga in med ditt Google-konto godkänner du att vi får tillgång till viss information som ditt namn och e-postadress. Vi säljer inte dina uppgifter och vidtar lämpliga åtgärder för att skydda din integritet. Se vår integritetspolicy för mer information."
+            },
+            {
+                "title": "4. Uppsägning",
+                "content": "Vi förbehåller oss rätten att stänga av eller avsluta ditt konto om du bryter mot dessa villkor eller ägnar dig åt skadlig aktivitet."
+            },
+            {
+                "title": "5. Ändringar i villkoren",
+                "content": "Vi kan uppdatera dessa villkor när som helst. Fortsatt användning av tjänsten efter ändringar innebär att du godkänner de nya villkoren."
+            },
+            {
+                "title": "6. Kontakta oss",
+                "content": "Om du har frågor om dessa villkor, vänligen kontakta oss på wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "tillagd"
+    },
+    "footer": {
+        "description": "Alla rättigheter förbehållna."
+    }
+}

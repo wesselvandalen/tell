@@ -19,9 +19,7 @@ const db = new FoodTrackerDB();
 // Save selected foods for a specific date
 export async function saveFoods(date: string, foods: SelectedFood[]): Promise<void> {
   try {
-    console.log(`Saving foods for date ${date}:`, foods);
     await db.foods.put({ date, selectedFoods: foods });
-    console.log(`Successfully saved foods for date ${date}`);
   } catch (error) {
     console.error(`Error saving foods for date ${date}:`, error);
     throw error;
@@ -32,7 +30,6 @@ export async function saveFoods(date: string, foods: SelectedFood[]): Promise<vo
 export async function loadFoods(date: string): Promise<SelectedFood[]> {
   try {
     const entry = await db.foods.get(date);
-    console.log(`Loaded foods for date ${date}:`, entry?.selectedFoods || []);
     return entry ? entry.selectedFoods : [];
   } catch (error) {
     console.error(`Error loading foods for date ${date}:`, error);
@@ -44,7 +41,6 @@ export async function loadFoods(date: string): Promise<SelectedFood[]> {
 export async function loadAllFoods(): Promise<{ date: string; selectedFoods: SelectedFood[] }[]> {
   try {
     const allFoods = await db.foods.toArray();
-    console.log('Loaded all foods:', allFoods);
     return allFoods;
   } catch (error) {
     console.error('Error loading all foods:', error);
@@ -56,7 +52,6 @@ export async function loadAllFoods(): Promise<{ date: string; selectedFoods: Sel
 export async function clearFoods(): Promise<void> {
   try {
     await db.foods.clear();
-    console.log('Cleared all food data');
   } catch (error) {
     console.error('Error clearing foods:', error);
     throw error;

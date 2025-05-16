@@ -1,0 +1,91 @@
+{
+    "sidebar": {
+        "home": "Hjem",
+        "account": "Konto",
+        "terms": "Vilkår og betingelser",
+        "note": {
+            "new": "Ny",
+            "description": "Prøv at bruge vores app på dit sprog! Tell understøtter nu 9 sprog i alt!"
+        },
+        "userblock": {
+            "logout": "Log ud"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "tilbage",
+            "over": "over",
+            "carbs": "Kulhydrater",
+            "proteins": "Proteiner",
+            "fat": "Fedt"
+        },
+        "foodsearch": {
+            "search": "Søg efter mad...",
+            "chosenfood": "Valgt mad",
+            "nofood": "Der er endnu ikke tilføjet nogen mad.",
+            "remove": "Fjern"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Opdag vores",
+            "mid_description": "kalorietæller, hvor du bare kan",
+            "highlighted_phrases": {
+                "amazing": "fantastiske",
+                "track": "registrere din mad"
+            },
+            "description": "uden overflødige funktioner!"
+        },
+        "buttons": {
+            "tracker": "Gå til tælleren",
+            "account": "Opret en konto"
+        },
+        "introduction": {
+            "main1": "Vi er ikke de første til at gøre det,",
+            "main2": "vi gør det bare rigtigt.",
+            "first": "Vi er almindelige mennesker, som bare vil tælle kalorier. Ingen reklamer, ingen unødvendige funktioner – bare enkel og effektiv kalorietælling.",
+            "second": "Hos Tell (norsk for 'tælle') ønsker vi en simpel app, hvor folk kan registrere deres kalorier på tværs af platforme uden besvær. Derfor lavede vi denne app så enkel som muligt, men med det mest nødvendige."
+        }
+    },
+    "errorpage": {
+        "main": "Der er ikke noget at finde her...",
+        "description": "Uanset hvad du ledte efter, er det ikke her.",
+        "link": "Gå tilbage til forsiden"
+    },
+    "termspage": {
+        "title": "Vilkår og betingelser",
+        "intro": "Velkommen til vores kaloriesporingsside. Ved at bruge vores hjemmeside og tjenester accepterer du disse vilkår og betingelser. Hvis du ikke accepterer dem, bedes du undlade at bruge vores tjenester.",
+        "sections": [
+            {
+                "title": "1. Kontooprettelse",
+                "content": "For at bruge vores tjeneste skal du oprette en konto via Google-godkendelse. Du er ansvarlig for at holde dine kontooplysninger fortrolige og sikre, at al aktivitet under din konto overholder disse vilkår."
+            },
+            {
+                "title": "2. Brug af tjenesten",
+                "content": "Vores tjeneste giver dig mulighed for at spore dit daglige kalorieindtag. Du accepterer at bruge denne tjeneste udelukkende til personligt, ikke-kommercielt brug og ikke til ulovlige eller skadelige aktiviteter."
+            },
+            {
+                "title": "3. Privatliv og data",
+                "content": "Ved at logge ind med din Google-konto giver du os tilladelse til at tilgå visse oplysninger som dit navn og din e-mailadresse. Vi sælger ikke dine data og tager passende skridt for at beskytte dit privatliv. Se vores privatlivspolitik for flere oplysninger."
+            },
+            {
+                "title": "4. Opsigelse",
+                "content": "Vi forbeholder os retten til at suspendere eller opsige din konto, hvis du overtræder disse vilkår eller foretager dig noget, der skader vores tjeneste eller brugere."
+            },
+            {
+                "title": "5. Ændringer i vilkår",
+                "content": "Vi kan til enhver tid opdatere disse vilkår og betingelser. Fortsat brug af tjenesten efter ændringer betragtes som accept af de nye vilkår."
+            },
+            {
+                "title": "6. Kontakt os",
+                "content": "Hvis du har spørgsmål om disse vilkår, bedes du kontakte os på wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "tilføjet"
+    },
+    "footer": {
+        "description": "Alle rettigheder forbeholdes."
+    }
+}

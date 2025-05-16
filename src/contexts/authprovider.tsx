@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           if (userDoc.exists()) {
             setUser(currentUser);
           } else {
-            console.log("User document doesn't exist in Firestore");
             setUser(null);
           }
         } else {

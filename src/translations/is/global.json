@@ -1,0 +1,91 @@
+{
+    "sidebar": {
+        "home": "Heim",
+        "account": "Aðgangur",
+        "terms": "Skilmálar og skilyrði",
+        "note": {
+            "new": "Nýtt",
+            "description": "Reyndu appið okkar á þínu tungumáli! Tell styður nú alls 9 tungumál!"
+        },
+        "userblock": {
+            "logout": "Skrá út"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "eftir",
+            "over": "yfir",
+            "carbs": "Kolvetni",
+            "proteins": "Prótein",
+            "fat": "Fita"
+        },
+        "foodsearch": {
+            "search": "Leitaðu að mat...",
+            "chosenfood": "Valinn matur",
+            "nofood": "Enginn matur hefur verið bætt við enn.",
+            "remove": "Fjarlægja"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Uppgötvaðu okkar",
+            "mid_description": "hitaeiningateljara, þar sem þú getur einfaldlega",
+            "highlighted_phrases": {
+                "amazing": "ótrúlega",
+                "track": "fylgst með matnum þínum"
+            },
+            "description": "án óþarfa eiginleika!"
+        },
+        "buttons": {
+            "tracker": "Fara í teljarann",
+            "account": "Búa til aðgang"
+        },
+        "introduction": {
+            "main1": "Við erum ekki þau fyrstu sem gera þetta,",
+            "main2": "við gerum þetta bara rétt.",
+            "first": "Við erum venjulegt fólk sem vill bara telja hitaeiningar. Engar auglýsingar, engir óþarfa eiginleikar, bara einföld og áhrifarík talning.",
+            "second": "Hjá Tell (norska fyrir „telja“) viljum við hafa einfalt app þar sem fólk getur fylgst með hitaeiningum sínum á mismunandi tækjum, án vesen. Þess vegna gerðum við appið eins einfalt og hægt er, með því sem við teljum nauðsynlegt."
+        }
+    },
+    "errorpage": {
+        "main": "Það er ekkert hér...",
+        "description": "Hvað sem þú varst að leita að er ekki hér.",
+        "link": "Fara aftur á heimasíðuna"
+    },
+    "termspage": {
+        "title": "Skilmálar og skilyrði",
+        "intro": "Velkomin á vefsíðu okkar fyrir kaloríueftirlit. Með því að nota vefsíðuna okkar og þjónustu samþykkir þú þessa skilmála. Ef þú samþykkir þá ekki, vinsamlegast notaðu ekki þjónustuna.",
+        "sections": [
+            {
+                "title": "1. Skráning reiknings",
+                "content": "Til að nota þjónustuna verður þú að skrá þig inn með Google-auðkenningu. Þú berð ábyrgð á að viðhalda trúnaði um reikning þinn og að allar aðgerðir í þínum nafni séu í samræmi við þessa skilmála."
+            },
+            {
+                "title": "2. Notkun þjónustunnar",
+                "content": "Þjónustan gerir þér kleift að fylgjast með daglegri kaloríuneyslu. Þú samþykkir að nota hana aðeins í persónulegum, ekki-viðskiptalegum tilgangi og ekki í ólöglegum eða skaðlegum tilgangi."
+            },
+            {
+                "title": "3. Persónuvernd og gögn",
+                "content": "Með því að skrá þig inn með Google reikningi veitir þú okkur aðgang að ákveðnum upplýsingum eins og nafni og netfangi. Við seljum ekki gögnin þín og grípum til viðeigandi ráðstafana til að vernda persónuvernd þína. Sjáðu persónuverndarstefnuna okkar fyrir frekari upplýsingar."
+            },
+            {
+                "title": "4. Lokun reiknings",
+                "content": "Við áskiljum okkur rétt til að loka eða slíta reikningnum þínum ef þú brýtur gegn þessum skilmálum eða tekur þátt í skaðlegri hegðun."
+            },
+            {
+                "title": "5. Breytingar á skilmálum",
+                "content": "Við getum uppfært þessa skilmála hvenær sem er. Áframhaldandi notkun eftir breytingar telst samþykki á nýju skilmálunum."
+            },
+            {
+                "title": "6. Hafðu samband",
+                "content": "Ef þú hefur spurningar um þessa skilmála, vinsamlegast hafðu samband við okkur á wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "bætt við"
+    },
+    "footer": {
+        "description": "Öll réttindi áskilin."
+    }
+}

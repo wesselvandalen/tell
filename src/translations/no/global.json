@@ -1,6 +1,91 @@
 {
-    "dateswitch": {
-        "previousday": "Forrige dag",
-        "nextday": "Neste dag"
+    "sidebar": {
+        "home": "Hjem",
+        "account": "Konto",
+        "terms": "Vilkår og betingelser",
+        "note": {
+            "new": "Ny",
+            "description": "Prøv å bruke appen vår på ditt språk! Tell støtter nå 9 språk totalt!"
+        },
+        "userblock": {
+            "logout": "Logg ut"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "igjen",
+            "over": "over",
+            "carbs": "Karbohydrater",
+            "proteins": "Proteiner",
+            "fat": "Fett"
+        },
+        "foodsearch": {
+            "search": "Søk etter mat...",
+            "chosenfood": "Valgt mat",
+            "nofood": "Ingen mat er lagt til ennå.",
+            "remove": "Fjern"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Oppdag vår",
+            "mid_description": "kalorieteller, hvor du bare kan",
+            "highlighted_phrases": {
+                "amazing": "fantastiske",
+                "track": "registrere maten din"
+            },
+            "description": "uten unødvendige funksjoner!"
+        },
+        "buttons": {
+            "tracker": "Gå til teller",
+            "account": "Lag en konto"
+        },
+        "introduction": {
+            "main1": "Vi er ikke de første som gjør det,",
+            "main2": "vi bare gjør det riktig.",
+            "first": "Vi er vanlige folk som bare vil telle kalorier. Ingen annonser, ingen unødvendige funksjoner, bare enkelt og effektivt kaloriregistrering.",
+            "second": "Hos Tell (norsk for 'telle') vil vi ha en enkel app hvor folk kan spore kaloriene sine, på tvers av plattformer, uten styr. Derfor lagde vi denne appen så enkel som mulig, men med det vi faktisk trenger."
+        }
+    },
+    "errorpage": {
+        "main": "Det finnes ingenting her...",
+        "description": "Uansett hva du lette etter, er det ikke her.",
+        "link": "Gå tilbake til hovedsiden"
+    },
+    "termspage": {
+        "title": "Vilkår og betingelser",
+        "intro": "Velkommen til vårt nettsted for kaloritelling. Ved å bruke vårt nettsted og våre tjenester, godtar du disse vilkårene og betingelsene. Hvis du ikke godtar dem, vennligst ikke bruk våre tjenester.",
+        "sections": [
+            {
+                "title": "1. Registrering av konto",
+                "content": "For å bruke tjenesten vår må du opprette en konto via Google-autentisering. Du er ansvarlig for å holde kontoen din konfidensiell og sørge for at all aktivitet under kontoen overholder disse vilkårene."
+            },
+            {
+                "title": "2. Bruk av tjenesten",
+                "content": "Tjenesten lar deg spore ditt daglige kaloriinntak. Du samtykker i å bruke tjenesten kun til personlig, ikke-kommersiell bruk og ikke til ulovlige eller skadelige aktiviteter."
+            },
+            {
+                "title": "3. Personvern og data",
+                "content": "Ved å logge inn med Google-kontoen din gir du oss tillatelse til å få tilgang til informasjon som navn og e-postadresse. Vi selger ikke dine data og tar nødvendige tiltak for å beskytte ditt personvern. Se vår personvernerklæring for mer informasjon."
+            },
+            {
+                "title": "4. Oppsigelse",
+                "content": "Vi forbeholder oss retten til å suspendere eller avslutte kontoen din hvis du bryter disse vilkårene eller utfører handlinger som skader tjenesten eller brukere."
+            },
+            {
+                "title": "5. Endringer i vilkår",
+                "content": "Vi kan oppdatere disse vilkårene og betingelsene når som helst. Fortsatt bruk etter endringer innebærer at du godtar de nye vilkårene."
+            },
+            {
+                "title": "6. Kontakt oss",
+                "content": "Hvis du har spørsmål om disse vilkårene, vennligst kontakt oss på wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "lagt til"
+    },
+    "footer": {
+        "description": "Alle rettigheter forbeholdt."
     }
 }

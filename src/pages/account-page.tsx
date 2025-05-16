@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { signInGoogle } from "../service/auth-service";
-import { type User } from "firebase/auth";
 
 export default function AccountPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -10,8 +9,7 @@ export default function AccountPage() {
     try {
       setIsLoading(true);
       setError(null);
-      const user: User = await signInGoogle();
-      console.log("Signed in user:", user);
+      await signInGoogle();
       window.location.assign("/tracker");
     } catch (error: any) {
       const errorMessage = error.message || "Failed to sign in with Google";

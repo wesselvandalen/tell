@@ -1,0 +1,91 @@
+{
+    "sidebar": {
+        "home": "Avaleht",
+        "account": "Konto",
+        "terms": "Tingimused",
+        "note": {
+            "new": "Uus",
+            "description": "Proovi meie rakendust oma keeles! Tell toetab nüüd kokku 9 keelt!"
+        },
+        "userblock": {
+            "logout": "Logi välja"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "jäänud",
+            "over": "üle",
+            "carbs": "Süsivesikud",
+            "proteins": "Valgud",
+            "fat": "Rasv"
+        },
+        "foodsearch": {
+            "search": "Otsi toitu...",
+            "chosenfood": "Valitud toit",
+            "nofood": "Toitu ei ole veel lisatud.",
+            "remove": "Eemalda"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Avasta meie",
+            "mid_description": "kalorilugeja, kus saad lihtsalt",
+            "highlighted_phrases": {
+                "amazing": "hämmastavalt",
+                "track": "jälgida oma toitu"
+            },
+            "description": "ilma ebavajalike funktsioonideta!"
+        },
+        "buttons": {
+            "tracker": "Mine kalorilugejasse",
+            "account": "Loo konto"
+        },
+        "introduction": {
+            "main1": "Me ei ole esimesed, kes seda teevad,",
+            "main2": "me lihtsalt teeme seda õigesti.",
+            "first": "Oleme tavalised inimesed, kes tahavad lihtsalt oma kaloreid jälgida. Ei reklaame, ei üleliigseid funktsioone – ainult lihtne ja tõhus kaloriarvestus.",
+            "second": "Tellis (norra keeles 'loenda') tahame lihtsat rakendust, kus inimesed saavad jälgida oma kaloreid eri platvormidel ilma vaevata. Seepärast lõimegi võimalikult lihtsa, kuid vajalike funktsioonidega rakenduse."
+        }
+    },
+    "errorpage": {
+        "main": "Siin ei ole midagi...",
+        "description": "Mida iganes sa otsisid, see ei ole siin.",
+        "link": "Tagasi avalehele"
+    },
+    "termspage": {
+        "title": "Treytir og ásetingar",
+        "intro": "Vælkomin til okkara kaloriuteljingarheimasíðu. Við at brúka okkara heimasíðu og tænastu góðtekur tú hesar treytir. Um tú ikki góðtekur tær, vinarliga brúka ikki tænastuna.",
+        "sections": [
+            {
+                "title": "1. Kontuskráseting",
+                "content": "Fyri at brúka tænastuna skalt tú stovna eina kontu við Google-staðfesting. Tú ert ábyrgdarfull/ur fyri at halda kontu tínari loyniligari og tryggja, at øll nýtsla er í samsvari við hesar treytir."
+            },
+            {
+                "title": "2. Nýtsla av tænastuni",
+                "content": "Tænastan gevur tær møguleika at telja tín dagliga kaloriuinntøku. Tú nýtir hana bert til persónligt, ikki-vinnuligt endamál og ikki til ólógliga ella skaðiliga nýtslu."
+            },
+            {
+                "title": "3. Persónsupplýsingar og dátuvernd",
+                "content": "Við at innrita við Google gevur tú okkum atgongd til upplýsingar sum navn og teldupost. Vit selja ikki tínar upplýsingar og verja tínar persónligu dátur. Les okkara dátupolitikk fyri meira kunning."
+            },
+            {
+                "title": "4. Ending av kontu",
+                "content": "Vit hava rætt til at steðga ella sløkkja tína kontu um tú brýtur hesar treytir ella skaðar tænastuna ella brúkarar."
+            },
+            {
+                "title": "5. Broytingar í treytum",
+                "content": "Vit kunnu dagføra hesar treytir nær sum helst. Heldur tú fram við at brúka tænastuna, verður tað roknað sum góðkenning av nýggju treytunum."
+            },
+            {
+                "title": "6. Samband",
+                "content": "Hevur tú spurningar um hesar treytir, set teg í samband við okkum á wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "lisatud"
+    },
+    "footer": {
+        "description": "Kõik õigused kaitstud."
+    }
+}

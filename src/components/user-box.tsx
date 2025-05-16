@@ -1,6 +1,7 @@
 import { signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../service/firebase';
+import { useTranslation } from 'react-i18next';
 
 interface UserBlockProps {
   name: string;
@@ -8,6 +9,7 @@ interface UserBlockProps {
 }
 
 export default function UserBox({ name, imageUrl }: UserBlockProps) {
+  const {t} = useTranslation("global");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -32,17 +34,11 @@ export default function UserBox({ name, imageUrl }: UserBlockProps) {
 
       {isMenuOpen && (
         <div className="absolute top-full left-0 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-          {/* <button
-            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            onClick={() => console.log('Edit Profile')}
-          >
-            Edit Profile
-          </button> */}
           <button
             className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
             onClick={() => signOut(auth)}
           >
-            Logg ut
+            {t("sidebar.userblock.logout")}
           </button>
         </div>
       )}

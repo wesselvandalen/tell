@@ -1,0 +1,91 @@
+{
+    "sidebar": {
+        "home": "Home",
+        "account": "Account",
+        "terms": "Algemene voorwaarden",
+        "note": {
+            "new": "Nieuw",
+            "description": "Probeer onze app in jouw taal! Tell ondersteunt nu in totaal 9 talen!"
+        },
+        "userblock": {
+            "logout": "Uitloggen"
+        }
+    },
+    "tracker": {
+        "counter": {
+            "togo": "over",
+            "over": "boven",
+            "carbs": "Koolhydraten",
+            "proteins": "Eiwitten",
+            "fat": "Vetten"
+        },
+        "foodsearch": {
+            "search": "Zoek naar eten...",
+            "chosenfood": "Gekozen voedsel",
+            "nofood": "Er is nog geen eten toegevoegd.",
+            "remove": "Verwijderen"
+        }
+    },
+    "homepage": {
+        "top": {
+            "title": "Ontdek onze",
+            "mid_description": "calorietracker, waarmee je gewoon",
+            "highlighted_phrases": {
+                "amazing": "geweldige",
+                "track": "je voedsel kunt bijhouden"
+            },
+            "description": "zonder onzinfuncties!"
+        },
+        "buttons": {
+            "tracker": "Ga naar de tracker",
+            "account": "Maak een account aan"
+        },
+        "introduction": {
+            "main1": "We zijn niet de eersten die het doen,",
+            "main2": "we doen het gewoon goed.",
+            "first": "Wij zijn gewone mensen die gewoon calorieën willen bijhouden. Geen advertenties, geen onnodige functies, gewoon eenvoudig en efficiënt calorietracken.",
+            "second": "Bij Tell (Noors voor 'tellen') willen we een simpele app waarmee mensen hun calorieën kunnen bijhouden, op elk platform, zonder gedoe. Daarom hebben we deze app zo simpel mogelijk gemaakt, met alleen de noodzakelijke functies."
+        }
+    },
+    "errorpage": {
+        "main": "Er is hier niets te vinden...",
+        "description": "Wat je ook zocht, het is hier niet.",
+        "link": "Ga terug naar de hoofdpagina"
+    },
+    "termspage": {
+        "title": "Algemene voorwaarden",
+        "intro": "Welkom op onze calorie-trackingwebsite. Door onze website en diensten te gebruiken, ga je akkoord met deze algemene voorwaarden. Als je niet akkoord gaat, gebruik onze diensten dan niet.",
+        "sections": [
+            {
+                "title": "1. Accountregistratie",
+                "content": "Om onze dienst te gebruiken, moet je een account aanmaken via Google-authenticatie. Je bent verantwoordelijk voor het vertrouwelijk houden van je accountgegevens en ervoor te zorgen dat alle activiteiten onder jouw account in overeenstemming zijn met deze voorwaarden."
+            },
+            {
+                "title": "2. Gebruik van de dienst",
+                "content": "Onze dienst stelt je in staat om je dagelijkse calorie-inname bij te houden. Je stemt ermee in deze dienst uitsluitend voor persoonlijk, niet-commercieel gebruik te gebruiken en niet voor illegale of schadelijke activiteiten."
+            },
+            {
+                "title": "3. Privacy en gegevens",
+                "content": "Door in te loggen met je Google-account geef je ons toestemming om bepaalde informatie te gebruiken, zoals je naam en e-mailadres. Wij verkopen je gegevens niet en nemen passende maatregelen om je privacy te beschermen. Zie ons privacybeleid voor meer informatie."
+            },
+            {
+                "title": "4. Beëindiging",
+                "content": "We behouden ons het recht voor om je account op te schorten of te beëindigen als je deze voorwaarden overtreedt of activiteiten onderneemt die onze dienst of gebruikers schaden."
+            },
+            {
+                "title": "5. Wijzigingen in voorwaarden",
+                "content": "We kunnen deze voorwaarden op elk moment bijwerken. Voortgezet gebruik van de dienst na wijzigingen betekent dat je de nieuwe voorwaarden accepteert."
+            },
+            {
+                "title": "6. Contacteer ons",
+                "content": "Als je vragen hebt over deze voorwaarden, neem dan contact met ons op via wesselvandalen@gmail.com."
+            }
+        ]
+    },
+    "notification": {
+        "added": "toegevoegd"
+    },
+    "footer": {
+        "description": "Alle rechten voorbehouden."
+    }
+}

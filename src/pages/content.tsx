@@ -9,8 +9,10 @@ import SelectedFoods from "../components/selected-foods";
 import Footer from "../components/footer";
 import { saveFoods, loadAllFoods } from "../data/food-tracker-db";
 import party from "party-js";
+import { useTranslation } from "react-i18next";
 
 export default function Content() {
+  const {t} = useTranslation("global");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedFoods, setSelectedFoods] = useState<{ [date: string]: SelectedFood[] }>({});
   const [currentDate, setCurrentDate] = useState<string>(new Date().toISOString().split('T')[0]);
@@ -38,14 +40,12 @@ export default function Content() {
   useEffect(() => {
     const savedGoals = localStorage.getItem("nutritionGoals");
     if (savedGoals) {
-      console.log('Loaded goals from localStorage:', JSON.parse(savedGoals));
       setGoals(JSON.parse(savedGoals));
     }
   }, []);
 
   // Save goals to localStorage
   useEffect(() => {
-    console.log('Saving goals to localStorage:', goals);
     localStorage.setItem("nutritionGoals", JSON.stringify(goals));
   }, [goals]);
 
@@ -57,7 +57,6 @@ export default function Content() {
           acc[date] = selectedFoods;
           return acc;
         }, {} as { [date: string]: SelectedFood[] });
-        console.log('Setting selectedFoods:', foodsByDate);
         setSelectedFoods(foodsByDate);
         // Ensure currentDate has an entry, even if empty
         if (!foodsByDate[currentDate]) {
@@ -111,17 +110,15 @@ export default function Content() {
       } else {
         updatedFoods = [...currentFoods, { food, quantity: 1 }];
       }
-      console.log(`Adding food ${food.name} for date ${currentDate}`);
       return { ...prev, [currentDate]: updatedFoods };
     });
 
     setSearchTerm("");
-    setNotification(`${food.name} lagt til`);
+    setNotification(`${food.name} ${t("notification.added")}`);
   };
 
   const removeFood = (index: number) => {
     setSelectedFoods((prev) => {
-      console.log(`Removing food at index ${index} for date ${currentDate}`);
       return {
         ...prev,
         [currentDate]: prev[currentDate].filter((_, i) => i !== index),
@@ -135,7 +132,6 @@ export default function Content() {
       const updatedFoods = [...currentFoods];
       const newQuantity = updatedFoods[index].quantity + delta;
       if (newQuantity <= 0) {
-        console.log(`Removing food at index ${index} due to quantity <= 0 for date ${currentDate}`);
         return {
           ...prev,
           [currentDate]: updatedFoods.filter((_, i) => i !== index),
@@ -145,7 +141,6 @@ export default function Content() {
         ...updatedFoods[index],
         quantity: newQuantity,
       };
-      console.log(`Updating quantity for food at index ${index} to ${newQuantity} for date ${currentDate}`);
       return { ...prev, [currentDate]: updatedFoods };
     });
     if (delta > 0) {
@@ -161,7 +156,6 @@ export default function Content() {
         setSelectedFoods((prev) => ({ ...prev, [newDateStr]: [] }));
       }
       setConfettiTriggered(false);
-      console.log(`Changed to today's date: ${newDateStr}`);
       return;
     }
 
@@ -173,7 +167,6 @@ export default function Content() {
       setSelectedFoods((prev) => ({ ...prev, [newDateStr]: [] }));
     }
     setConfettiTriggered(false);
-    console.log(`Changed date to: ${newDateStr}`);
   };
 
   return (

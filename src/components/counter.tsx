@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export default function Counter({ totals, goals }: any) {
+  const {t} = useTranslation("global");
   // Calculate progress percentage (0 to 100)
   const progress = Math.min((totals.calories / goals.calories) * 100, 100);
 
@@ -47,7 +50,7 @@ export default function Counter({ totals, goals }: any) {
           <span className="text-2xl sm:text-2xl text-center">
             {calculateCaloryGoalDifference(totals.calories, goals.calories)}
           </span>
-          <span className="text-md sm:text-base text-center">{totals.calories > goals.calories ? "over" : "igjen"}</span>
+          <span className="text-md sm:text-base text-center">{totals.calories > goals.calories ? t("tracker.counter.over") : t("tracker.counter.togo")}</span>
         </div>
       </div>
 
@@ -55,15 +58,15 @@ export default function Counter({ totals, goals }: any) {
       
       <div className="flex flex-row justify-center gap-4 rounded-lg bg-white shadow pl-2 pr-2 sm:p-2 w-full sm:w-auto">
         <div className="flex flex-col items-center justify-center w-full sm:w-24 h-20 sm:h-24 text-gray-900 ml-5 mr-5">
-          <span className="text-xs sm:text-sm font-semibold">Karbs</span>
+          <span className="text-xs sm:text-sm font-semibold">{t("tracker.counter.carbs")}</span>
           <span className="text-base sm:text-lg">{totals.carbs.toFixed(0)}/{goals.carbs}g</span>
         </div>
         <div className="flex flex-col items-center justify-center w-full sm:w-24 h-20 sm:h-24 text-gray-900 ml-5 mr-5">
-          <span className="text-xs sm:text-sm font-semibold">Proteiner</span>
+          <span className="text-xs sm:text-sm font-semibold">{t("tracker.counter.proteins")}</span>
           <span className="text-base sm:text-lg">{totals.protein.toFixed(0)}/{goals.protein}g</span>
         </div>
         <div className="flex flex-col items-center justify-center w-full sm:w-24 h-20 sm:h-24 text-gray-900 ml-5 mr-5">
-          <span className="text-xs sm:text-sm font-semibold">Fett</span>
+          <span className="text-xs sm:text-sm font-semibold">{t("tracker.counter.fat")}</span>
           <span className="text-base sm:text-lg">{totals.fat.toFixed(0)}/{goals.fat}g</span>
         </div>
       </div>
