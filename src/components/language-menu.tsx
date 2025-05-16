@@ -7,10 +7,9 @@ export default function LanguageMenu() {
 
     const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedLanguage(event.target.value);
-        i18n.language = event.target.value;
+        i18n.changeLanguage(event.target.value);
         localStorage.setItem("lang", event.target.value);
         document.documentElement.lang = event.target.value;
-        window.location.reload();
     };
 
     return (

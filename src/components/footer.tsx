@@ -8,7 +8,7 @@ export default function Footer() {
     
     return (
         <footer className="rounded-lg">
-            <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <div className="w-full mx-auto max-w-screen-xl py-4 flex items-center justify-between flex-col md:flex-row">
                 <span className="text-sm text-gray-500 sm:text-center">&#169; {new Date().getFullYear()} <a href="/" className="hover:underline">Tell™</a>. {t("footer.description")}
                 </span>
                 <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">

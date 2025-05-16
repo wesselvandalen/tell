@@ -16,7 +16,7 @@ export default function HomePage() {
         <div className="min-h-screen flex items-start justify-start flex-col p-8">
             <div className="max-w-lg text-left">
 
-                <h3 className="text-5xl font-bold text-gray-800 mb-4 flex items-center gap-2">{getRandomElementFromArray()} <img src={emoji} alt="Hand emoji" className="w-12 h-12" /></h3>
+                <h3 className="text-5xl font-bold text-gray-800 mb-4 flex items-center gap-2">{getRandomElementFromArray()} <img src={emoji} alt="Hand emoji" className="inline-block w-12 h-12" /></h3>
                 <p className="text-lg text-gray-600 mb-6">
                     {t("homepage.top.title")} <span className="relative inline-block">
                         {t("homepage.top.highlighted_phrases.amazing")}
@@ -32,7 +32,7 @@ export default function HomePage() {
                     </span> {t("homepage.top.description")}
                 </p>
 
-                <div className="space-y-4 mb-15">
+                <div className="space-y-4">
                     {user ?
                         <button type="button" onClick={() => window.location.assign("/tracker")} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             {t("homepage.buttons.tracker")}
@@ -51,9 +51,9 @@ export default function HomePage() {
                 </div>
             </div>
 
-            <div className="text-left ml-[-20px]">
+            <div className="text-left ml-[-20px] mt-15 md:mt-0">
                 <section className="bg-white">
-                    <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+                    <div className="gap-16 items-center py-4 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                         <div className="font-light text-gray-500 sm:text-lg">
                             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
                                 {t("homepage.introduction.main1")} {t("homepage.introduction.main2")}
