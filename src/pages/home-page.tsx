@@ -8,15 +8,11 @@ export default function HomePage() {
     const { t } = useTranslation("global");
     const { user }: any = useContext(AuthContext);
 
-    const getRandomElementFromArray = (array: string[] = ["Välkomna", "Velkommen", "Tervetuloa", "Welkom", "Velkomin", "Vælkomin", "Tere tulemast"]): string => {
-        return array[Math.floor(Math.random() * array.length)];
-    }
-
     return (
         <div className="min-h-screen flex items-start justify-start flex-col p-8">
             <div className="max-w-lg text-left">
 
-                <h3 className="text-5xl font-bold text-gray-800 mb-4 flex items-center gap-2">{getRandomElementFromArray()} <img src={emoji} alt="Hand emoji" className="inline-block w-12 h-12" /></h3>
+                <h3 className="text-5xl font-bold text-gray-800 mb-4 flex items-center gap-2">Velkommen<img src={emoji} alt="Hand emoji" className="inline-block w-12 h-12" /></h3>
                 <p className="text-lg text-gray-600 mb-6">
                     {t("homepage.top.title")} <span className="relative inline-block">
                         {t("homepage.top.highlighted_phrases.amazing")}
