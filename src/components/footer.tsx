@@ -1,19 +1,30 @@
+import { useContext } from "react";
+import { AuthContext } from "../contexts/auth-context";
+
 export default function Footer() {
+    const { user }: any = useContext(AuthContext);
+    
     return (
-        <footer className="p-4 bg-white mt-10">
-            <div className="mx-auto max-w-screen-xl text-center">
-                <a href="/" className="flex justify-center items-center text-2xl font-semibold text-gray-900">Tell™</a>
-                <p className="mb-2 text-gray-500 dark:text-gray-400">En enkel matsporer for deg, uten trøbbel.</p>
-                <ul className="flex flex-wrap justify-center items-center mb-2">
+        <footer className="rounded-lg ml-[-10px]">
+            <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+                <span className="text-sm text-gray-500 sm:text-center">&#169; {new Date().getFullYear()} <a href="/" className="hover:underline">Tell™</a>. All Rights Reserved.
+                </span>
+                <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
                     <li>
-                        <a href="/" className="mr-4 hover:underline md:mr-6 ">Hjem</a>
+                        <a href="/" className="hover:underline me-4 md:me-6">Home</a>
                     </li>
+                    {!user && <li>
+                        <a href="/account" className="hover:underline me-4 md:me-6">Account</a>
+                    </li>}
+                    {user && <li>
+                        <a href="/tracker" className="hover:underline me-4 md:me-6">Tracker</a>
+                    </li>}
                     <li>
-                        <a href="/login" className="mr-4 hover:underline md:mr-6">Logg inn</a>
+                        <a href="/terms" className="hover:underline me-4 md:me-6">Terms</a>
                     </li>
                 </ul>
-                <span className="text-sm sm:text-center">© {new Date().getFullYear()} <a href="/" className="hover:underline">Tell™</a>. Alle rettigheter reservert.</span>
             </div>
         </footer>
+
     );
 }

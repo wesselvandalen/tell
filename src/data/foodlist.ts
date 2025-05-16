@@ -26,4 +26,13 @@ export const foodList: Food[] = [
     { id: 23, name: "Øl (1 flaske)", calories: 164, fat: 0, protein: 1.6, carbs: 13 },
     { id: 24, name: "Croissant", calories: 231, fat: 12, protein: 4.5, carbs: 26 },
     { id: 25, name: "Hamburger (patty)", calories: 250, fat: 20, protein: 17, carbs: 0 },
+    { id: 26, name: "Kroket", calories: 180, fat: 11, protein: 6, carbs: 15 },
+    { id: 27, name: "Bolletje", calories: 140, fat: 2, protein: 4, carbs: 26 },
+    { id: 28, name: "Kipfilet (100g)", calories: 110, fat: 1.5, protein: 23, carbs: 0 },
+    { id: 29, name: "French Fries", calories: 312, fat: 15, protein: 3.4, carbs: 41 },
+    { id: 30, name: "Oasis (1 glass, 200 ml)", calories: 86, fat: 0, protein: 0, carbs: 21.5 },
+    { id: 31, name: "Braadworst (1)", calories: 280, fat: 24, protein: 14, carbs: 1 },
+    { id: 32, name: "Curry saus (1 portion)", calories: 40, fat: 0.5, protein: 0.5, carbs: 9 },
+    { id: 33, name: "Hamburger bread", calories: 150, fat: 2.5, protein: 5, carbs: 26 },
+    { id: 34, name: "Mayonaise (1 portion)", calories: 110, fat: 12, protein: 0.2, carbs: 0.5 },
 ];

@@ -15,7 +15,7 @@ export default function UserBox({ name, imageUrl }: UserBlockProps) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative border-b-1 pb-3 border-gray-300">
       <div
         className="flex items-center justify-start gap-2 pt-2 pb-2 rounded-md hover:bg-gray-100 cursor-pointer"
         onClick={toggleMenu}
