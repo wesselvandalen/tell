@@ -1,6 +1,6 @@
 import Dexie from 'dexie';
-import type { Table } from 'dexie'; // Use type-only import for Table
-import type { SelectedFood } from '../types/food'; // Adjust path to your types
+import type { Table } from 'dexie';
+import type { SelectedFood } from '../types/food';
 
 // Define the database
 class FoodTrackerDB extends Dexie {
@@ -18,21 +18,47 @@ const db = new FoodTrackerDB();
 
 // Save selected foods for a specific date
 export async function saveFoods(date: string, foods: SelectedFood[]): Promise<void> {
-  await db.foods.put({ date, selectedFoods: foods });
+  try {
+    console.log(`Saving foods for date ${date}:`, foods);
+    await db.foods.put({ date, selectedFoods: foods });
+    console.log(`Successfully saved foods for date ${date}`);
+  } catch (error) {
+    console.error(`Error saving foods for date ${date}:`, error);
+    throw error;
+  }
 }
 
 // Load selected foods for a specific date
 export async function loadFoods(date: string): Promise<SelectedFood[]> {
-  const entry = await db.foods.get(date);
-  return entry ? entry.selectedFoods : [];
+  try {
+    const entry = await db.foods.get(date);
+    console.log(`Loaded foods for date ${date}:`, entry?.selectedFoods || []);
+    return entry ? entry.selectedFoods : [];
+  } catch (error) {
+    console.error(`Error loading foods for date ${date}:`, error);
+    throw error;
+  }
 }
 
 // Load all foods from the database
 export async function loadAllFoods(): Promise<{ date: string; selectedFoods: SelectedFood[] }[]> {
-  return await db.foods.toArray();
+  try {
+    const allFoods = await db.foods.toArray();
+    console.log('Loaded all foods:', allFoods);
+    return allFoods;
+  } catch (error) {
+    console.error('Error loading all foods:', error);
+    throw error;
+  }
 }
 
-// Clear all food data (optional, for debugging or reset)
+// Clear all food data (for debugging or reset)
 export async function clearFoods(): Promise<void> {
-  await db.foods.clear();
+  try {
+    await db.foods.clear();
+    console.log('Cleared all food data');
+  } catch (error) {
+    console.error('Error clearing foods:', error);
+    throw error;
+  }
 }

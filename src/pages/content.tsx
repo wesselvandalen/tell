@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Food } from "../types/food";
+import type { Food, SelectedFood } from "../types/food";
 import Notification from "../components/notification";
 import { foodList as foodDatabase } from "../data/foodlist";
 import FoodSearch from "../components/food-search";
@@ -9,11 +9,6 @@ import SelectedFoods from "../components/selected-foods";
 import Footer from "../components/footer";
 import { saveFoods, loadAllFoods } from "../data/food-tracker-db";
 import party from "party-js";
-
-interface SelectedFood {
-  food: Food;
-  quantity: number;
-}
 
 export default function Content() {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -26,7 +21,7 @@ export default function Content() {
     carbs: 431,
   });
   const [notification, setNotification] = useState<string | null>(null);
-  const [confettiTriggered, setConfettiTriggered] = useState<boolean>(false); // New state to track confetti
+  const [confettiTriggered, setConfettiTriggered] = useState<boolean>(false);
 
   // Calculate totals
   const totals = (selectedFoods[currentDate] || []).reduce(
@@ -43,12 +38,14 @@ export default function Content() {
   useEffect(() => {
     const savedGoals = localStorage.getItem("nutritionGoals");
     if (savedGoals) {
+      console.log('Loaded goals from localStorage:', JSON.parse(savedGoals));
       setGoals(JSON.parse(savedGoals));
     }
   }, []);
 
   // Save goals to localStorage
   useEffect(() => {
+    console.log('Saving goals to localStorage:', goals);
     localStorage.setItem("nutritionGoals", JSON.stringify(goals));
   }, [goals]);
 
@@ -60,30 +57,34 @@ export default function Content() {
           acc[date] = selectedFoods;
           return acc;
         }, {} as { [date: string]: SelectedFood[] });
-        setSelectedFoods({
-          ...foodsByDate,
-          [currentDate]: foodsByDate[currentDate] || [],
-        });
+        console.log('Setting selectedFoods:', foodsByDate);
+        setSelectedFoods(foodsByDate);
+        // Ensure currentDate has an entry, even if empty
+        if (!foodsByDate[currentDate]) {
+          setSelectedFoods((prev) => ({ ...prev, [currentDate]: [] }));
+        }
       })
       .catch((error: any) => {
         console.error("Error loading all foods:", error);
         setNotification("Failed to load food data");
       });
-  }, [currentDate]);
+  }, []); // Run only on mount
 
   // Save foods to IndexedDB and check for calorie goal
   useEffect(() => {
-    saveFoods(currentDate, selectedFoods[currentDate] || []).catch((error: any) => {
-      console.error("Error saving foods:", error);
-      setNotification("Failed to save food data");
-    });
+    if (selectedFoods[currentDate]?.length >= 0) {
+      saveFoods(currentDate, selectedFoods[currentDate] || []).catch((error: any) => {
+        console.error("Error saving foods:", error);
+        setNotification("Failed to save food data");
+      });
+    }
 
     // Check if calorie goal is surpassed and confetti hasn't been triggered
     if (totals.calories > goals.calories && !confettiTriggered) {
       const element: any = document.querySelector("#confetti");
       if (element) {
         party.confetti(element);
-        setConfettiTriggered(true); // Prevent triggering again
+        setConfettiTriggered(true);
       }
     }
     // Reset confetti trigger if calories drop below goal
@@ -110,6 +111,7 @@ export default function Content() {
       } else {
         updatedFoods = [...currentFoods, { food, quantity: 1 }];
       }
+      console.log(`Adding food ${food.name} for date ${currentDate}`);
       return { ...prev, [currentDate]: updatedFoods };
     });
 
@@ -118,10 +120,13 @@ export default function Content() {
   };
 
   const removeFood = (index: number) => {
-    setSelectedFoods((prev) => ({
-      ...prev,
-      [currentDate]: prev[currentDate].filter((_, i) => i !== index),
-    }));
+    setSelectedFoods((prev) => {
+      console.log(`Removing food at index ${index} for date ${currentDate}`);
+      return {
+        ...prev,
+        [currentDate]: prev[currentDate].filter((_, i) => i !== index),
+      };
+    });
   };
 
   const updateQuantity = (index: number, delta: number) => {
@@ -130,6 +135,7 @@ export default function Content() {
       const updatedFoods = [...currentFoods];
       const newQuantity = updatedFoods[index].quantity + delta;
       if (newQuantity <= 0) {
+        console.log(`Removing food at index ${index} due to quantity <= 0 for date ${currentDate}`);
         return {
           ...prev,
           [currentDate]: updatedFoods.filter((_, i) => i !== index),
@@ -139,6 +145,7 @@ export default function Content() {
         ...updatedFoods[index],
         quantity: newQuantity,
       };
+      console.log(`Updating quantity for food at index ${index} to ${newQuantity} for date ${currentDate}`);
       return { ...prev, [currentDate]: updatedFoods };
     });
     if (delta > 0) {
@@ -148,13 +155,15 @@ export default function Content() {
 
   const changeDate = (days: number) => {
     if (days === 0) {
-      setCurrentDate(new Date().toISOString().split('T')[0])
-      if (!selectedFoods[new Date().toISOString().split('T')[0]]) {
+      const newDateStr = new Date().toISOString().split('T')[0];
+      setCurrentDate(newDateStr);
+      if (!selectedFoods[newDateStr]) {
         setSelectedFoods((prev) => ({ ...prev, [newDateStr]: [] }));
       }
       setConfettiTriggered(false);
+      console.log(`Changed to today's date: ${newDateStr}`);
       return;
-    };
+    }
 
     const newDate = new Date(currentDate);
     newDate.setDate(newDate.getDate() + days);
@@ -163,12 +172,12 @@ export default function Content() {
     if (!selectedFoods[newDateStr]) {
       setSelectedFoods((prev) => ({ ...prev, [newDateStr]: [] }));
     }
-    setConfettiTriggered(false); 
+    setConfettiTriggered(false);
+    console.log(`Changed date to: ${newDateStr}`);
   };
 
   return (
     <div className="flex-1 p-4 sm:p-6 max-w-7xl mx-auto">
-
       <Counter totals={totals} goals={goals} />
 
       <DateSwitch currentDate={currentDate} changeDate={changeDate} />
