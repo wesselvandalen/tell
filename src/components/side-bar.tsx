@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 export default function SideBar() {
   const {t} = useTranslation("global");
   const { user }: any = useContext(AuthContext);
-  const [showNote, setShowNote] = useState<boolean>(localStorage.getItem("note") === "false" || true);
+  const [showNote, setShowNote] = useState<boolean>(localStorage.getItem("note") === "false");
 
   const removeNote = () => {
     setShowNote(false);
