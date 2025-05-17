@@ -14,19 +14,17 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen">
-      <div className="fixed top-0 left-0 h-screen w-64 z-999">
-        <SideBar />
-      </div>
+      <SideBar />
 
       <div className="flex-1 flex items-center justify-center md:ml-64 overflow-y-auto w-full">
-        <div className='max-w-[1200px] w-full h-full'>
+        <div className="max-w-[1200px] w-full h-full">
           <Router>
             <Routes>
-              <Route path='/' element={<HomePage />} />
-              {user && <Route path='/tracker' element={<Content />} />}
-              {!user && <Route path='/account' element={<AccountPage />} />}
-              <Route path='/terms' element={<TermsPage />} />
-              <Route path='*' element={<ErrorPage />} />
+              <Route path="/" element={<HomePage />} />
+              {user && <Route path="/tracker" element={<Content />} />}
+              {!user && <Route path="/account" element={<AccountPage />} />}
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </Router>
         </div>

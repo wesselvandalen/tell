@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="min-h-screen flex items-start justify-start flex-col p-8">
             <div className="max-w-lg text-left">
 
-                <h3 className="text-5xl font-bold text-gray-800 mb-4 flex items-center gap-2">Velkommen<img src={emoji} alt="Hand emoji" className="inline-block w-12 h-12" /></h3>
+                <h3 className="text-5xl md:mt-0 mt-10 font-bold text-gray-800 mb-4 flex items-center gap-2">Velkommen<img src={emoji} alt="Hand emoji" className="inline-block w-12 h-12" /></h3>
                 <p className="text-lg text-gray-600 mb-6">
                     {t("homepage.top.title")} <span className="relative inline-block">
                         {t("homepage.top.highlighted_phrases.amazing")}
